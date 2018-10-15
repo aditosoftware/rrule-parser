@@ -7,6 +7,9 @@ import de.adito.rruleparser.tokenizer.value.IValueParser;
 
 import java.util.*;
 
+/**
+ * Default implementation of {@link IRRuleTokenizer}.
+ */
 public class RRuleTokenizer implements IRRuleTokenizer
 {
   private IValueParser valueParser;
@@ -54,7 +57,6 @@ public class RRuleTokenizer implements IRRuleTokenizer
 
     return rruleToken.getTokenInstance(valueInstance);
   }
-
 
   private String[] _splitRRule(String rruleInput)
   {

@@ -4,7 +4,7 @@ import de.adito.rruleparser.tokenizer.IRRuleTokenContainer;
 import de.adito.rruleparser.tokenizer.token.*;
 import de.adito.rruleparser.translation.*;
 
-import java.time.DayOfWeek;
+import java.time.*;
 import java.util.stream.Collectors;
 
 public class TextBuilder implements ITextBuilder
@@ -176,7 +176,7 @@ public class TextBuilder implements ITextBuilder
       return "";
 
     String result = fragmentTranslator.getTranslatedFragment(ETranslationFragment.ON);
-    result += " " + _translateMonthFromInt(byMonthToken.getValue().getValue());
+    result += " " + _translateMonth(byMonthToken.getValue());
     result += " " + byMonthDayToken.getValue();
 
     return result;
@@ -193,7 +193,7 @@ public class TextBuilder implements ITextBuilder
     String result = fragmentTranslator.getTranslatedFragment(ETranslationFragment.ON) + " " + _translateSetPosNumber(bySetPosToken.getValue());
     result += " " + _translateDay(byDayToken.getValue().getDayList().get(0));
     result += " " + fragmentTranslator.getTranslatedFragment(ETranslationFragment.OF);
-    result += " " + _translateMonthFromInt(byMonthToken.getValue().getValue());
+    result += " " + _translateMonth(byMonthToken.getValue());
 
     return result;
   }
@@ -263,33 +263,33 @@ public class TextBuilder implements ITextBuilder
     return "";
   }
 
-  private String _translateMonthFromInt(int month)
+  private String _translateMonth(Month month)
   {
     switch (month)
     {
-      case 1:
+      case JANUARY:
         return fragmentTranslator.getTranslatedFragment(ETranslationFragment.JANUARY);
-      case 2:
+      case FEBRUARY:
         return fragmentTranslator.getTranslatedFragment(ETranslationFragment.FEBRUARY);
-      case 3:
+      case MARCH:
         return fragmentTranslator.getTranslatedFragment(ETranslationFragment.MARCH);
-      case 4:
+      case APRIL:
         return fragmentTranslator.getTranslatedFragment(ETranslationFragment.APRIL);
-      case 5:
-        return fragmentTranslator.getTranslatedFragment(ETranslationFragment.MAI);
-      case 6:
+      case MAY:
+        return fragmentTranslator.getTranslatedFragment(ETranslationFragment.MAY);
+      case JUNE:
         return fragmentTranslator.getTranslatedFragment(ETranslationFragment.JUNE);
-      case 7:
+      case JULY:
         return fragmentTranslator.getTranslatedFragment(ETranslationFragment.JULY);
-      case 8:
+      case AUGUST:
         return fragmentTranslator.getTranslatedFragment(ETranslationFragment.AUGUST);
-      case 9:
+      case SEPTEMBER:
         return fragmentTranslator.getTranslatedFragment(ETranslationFragment.SEPTEMBER);
-      case 10:
+      case OCTOBER:
         return fragmentTranslator.getTranslatedFragment(ETranslationFragment.OCTOBER);
-      case 11:
+      case NOVEMBER:
         return fragmentTranslator.getTranslatedFragment(ETranslationFragment.NOVEMBER);
-      case 12:
+      case DECEMBER:
         return fragmentTranslator.getTranslatedFragment(ETranslationFragment.DECEMBER);
       default:
         return "";

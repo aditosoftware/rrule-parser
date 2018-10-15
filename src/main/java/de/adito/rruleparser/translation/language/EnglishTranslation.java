@@ -2,6 +2,9 @@ package de.adito.rruleparser.translation.language;
 
 import de.adito.rruleparser.translation.ETranslationFragment;
 
+/**
+ * Implements the english translation.
+ */
 public class EnglishTranslation implements ILanguagePackage
 {
   @Override
@@ -49,8 +52,8 @@ public class EnglishTranslation implements ILanguagePackage
         return "march";
       case APRIL:
         return "april";
-      case MAI:
-        return "mai";
+      case MAY:
+        return "may";
       case JUNE:
         return "june";
       case JULY:

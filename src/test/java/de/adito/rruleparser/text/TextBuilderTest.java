@@ -4,8 +4,9 @@ import de.adito.rruleparser.tokenizer.*;
 import de.adito.rruleparser.tokenizer.exception.RRuleTokenizeException;
 import de.adito.rruleparser.tokenizer.validation.RRuleValidator;
 import de.adito.rruleparser.tokenizer.value.*;
-import de.adito.rruleparser.translation.FragmentTranslator;
+import de.adito.rruleparser.translation.LanguagePackageFragmentTranslator;
 import de.adito.rruleparser.translation.language.EnglishTranslation;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.*;
 
@@ -17,7 +18,7 @@ class TextBuilderTest
 {
   private static IValueParser valueParser = new RRuleValueParser();
   private static IRRuleTokenizer tokenizer = new RRuleTokenizer(valueParser, new RRuleValidator());
-  private static TextBuilder textBuilder = new TextBuilder(new FragmentTranslator(new EnglishTranslation()));
+  private static TextBuilder textBuilder = new TextBuilder(new LanguagePackageFragmentTranslator(new EnglishTranslation()));
 
   private static Stream<Arguments> createTestCases()
   {
@@ -59,6 +60,7 @@ class TextBuilderTest
 
   @ParameterizedTest
   @MethodSource("createTestCases")
+  @DisplayName("Test some cases for the translation process")
   void testCases(String rrule, String expectedResult) throws RRuleTokenizeException
   {
     IRRuleTokenContainer tokenContainer = tokenizer.tokenize(rrule);

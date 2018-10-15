@@ -1,5 +1,9 @@
 package de.adito.rruleparser.translation;
 
+/**
+ * This enum defines all required text blocks, which are required
+ * to build a human readable text of a rrule.
+ */
 public enum ETranslationFragment
 {
   // Frequency
@@ -24,11 +28,12 @@ public enum ETranslationFragment
   SATURDAY,
   SUNDAY,
 
+  // Months
   JANUARY,
   FEBRUARY,
   MARCH,
   APRIL,
-  MAI,
+  MAY,
   JUNE,
   JULY,
   AUGUST,
@@ -44,9 +49,9 @@ public enum ETranslationFragment
   FOURTH,
   LAST,
 
+  // Utils
   UNTIL,
   TIMES,
-
   ON,
   EVERY,
   OF

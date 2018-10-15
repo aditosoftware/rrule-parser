@@ -3,6 +3,11 @@ package de.adito.rruleparser.tokenizer.validation;
 import de.adito.rruleparser.tokenizer.IRRuleTokenContainer;
 import de.adito.rruleparser.tokenizer.validation.exception.RRuleValidationException;
 
+/**
+ * Default implementation of {@link IRRuleValidator}. Currently validates the following:
+ * - If the"FREQ" token is set exactly once.
+ * - "UNTIL" or "COUNT" token is set (Both can't be set.)
+ */
 public class RRuleValidator implements IRRuleValidator
 {
   @Override
