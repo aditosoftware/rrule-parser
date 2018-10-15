@@ -1,0 +1,29 @@
+plugins {
+  id 'java'
+  id 'idea'
+}
+
+group 'de.adito.rrule-parser'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  compile group: 'org.jetbrains', name: 'annotations', version: '16.0.3'
+
+  testImplementation "org.junit.jupiter:junit-jupiter-api:5.2.0"
+  testImplementation 'org.junit.jupiter:junit-jupiter-params:5.2.0'
+  testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:5.2.0"
+}
+
+test {
+  useJUnitPlatform()
+
+  testLogging {
+    events "passed", "skipped", "failed"
+  }
+}
