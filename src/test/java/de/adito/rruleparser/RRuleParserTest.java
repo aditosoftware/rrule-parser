@@ -14,7 +14,7 @@ class RRuleParserTest
     // Creates a rrule parser with english translation
     RRuleParser ruleParser = new RRuleParser();
 
-    String parseResult = ruleParser.parseRRule("FREQ=MONTHLY;BYSETPOS=4;BYDAY=SU;INTERVAL=5;COUNT=1");
+    String parseResult = ruleParser.parseRRule("FREQ=MONTHLY;BYSETPOS=4;BYDAY=SU;INTERVAL=5");
 
     assertEquals("Every 5 months on fourth sunday", parseResult);
 
