@@ -1,10 +1,15 @@
-import java.rmi.activation.ActivationGroupID
+buildscript {
+  dependencies {
+    classpath group: 'org.hibernate.build.gradle', name: 'gradle-maven-publish-auth', version: '2.0.1'
+  }
+}
 
 plugins {
   id 'java'
   id 'idea'
   id 'maven-publish'
 }
+apply plugin: 'maven-publish-auth'
 
 group 'de.adito.rrule-parser'
 version '1.0.0-SNAPSHOT'
@@ -36,8 +41,38 @@ publishing {
     maven(MavenPublication) {
       groupId = "de.adito.rrule-parser"
       artifactId = "rrule-parser"
-      
       from components.java
+
+      pom {
+        name = "RRule parser"
+        url = "https://github.com/aditosoftware/rrule-parser"
+
+        scm {
+          connection = "https://github.com/aditosoftware/rrule-parser.git"
+          developerConnection = "git@github.com:aditosoftware/rrule-parser.git"
+          url = "https://github.com/aditosoftware/rrule-parser"
+        }
+
+        issueManagement {
+          url = "https://github.com/aditosoftware/rrule-parser/issues"
+          system = "github"
+        }
+
+        organization {
+          name = "ADITO Software GmbH"
+          url = "http://www.adito.de"
+        }
+      }
+    }
+  }
+
+  repositories {
+    maven {
+      name = "adito.m2"
+      if (version.toString().endsWith("-SNAPSHOT"))
+        url = "http://nexus.aditosoftware.local/repository/snapshots/"
+      else
+        url = "http://nexus.aditosoftware.local/repository/releases/"
     }
   }
 }
