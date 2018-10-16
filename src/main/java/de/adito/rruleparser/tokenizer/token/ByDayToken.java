@@ -57,6 +57,12 @@ public class ByDayToken implements IRRuleToken<ByDayToken.DayList>
     return displayName.substring(0, 2).toUpperCase();
   }
 
+  /**
+   * Helper method to get the required string which contains multiple days.
+   *
+   * @param pDayOfWeeks DayOfWeek to convert.
+   * @return String representative list of days.
+   */
   public static String getByDayOfWeek(DayOfWeek... pDayOfWeeks)
   {
     return Arrays.stream(pDayOfWeeks).map(ByDayToken::getByDayOfWeek).collect(Collectors.joining(","));
