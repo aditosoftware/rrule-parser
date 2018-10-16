@@ -1,6 +1,11 @@
 buildscript {
+  repositories {
+    mavenLocal()
+    jcenter()
+  }
+
   dependencies {
-    classpath group: 'org.hibernate.build.gradle', name: 'gradle-maven-publish-auth', version: '2.0.1'
+    classpath "org.hibernate.build.gradle:gradle-maven-publish-auth:2.0.1"
   }
 }
 
@@ -9,6 +14,7 @@ plugins {
   id 'idea'
   id 'maven-publish'
 }
+
 apply plugin: 'maven-publish-auth'
 
 group 'de.adito.rrule-parser'
@@ -18,7 +24,8 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 repositories {
-  mavenCentral()
+  mavenLocal()
+  jcenter()
 }
 
 dependencies {
@@ -35,12 +42,9 @@ test {
   }
 }
 
-
 publishing {
   publications {
     maven(MavenPublication) {
-      groupId = "de.adito.rrule-parser"
-      artifactId = "rrule-parser"
       from components.java
 
       pom {
@@ -69,6 +73,7 @@ publishing {
   repositories {
     maven {
       name = "adito.m2"
+      // If snapshot version publish it to snapshot repository
       if (version.toString().endsWith("-SNAPSHOT"))
         url = "http://nexus.aditosoftware.local/repository/snapshots/"
       else
