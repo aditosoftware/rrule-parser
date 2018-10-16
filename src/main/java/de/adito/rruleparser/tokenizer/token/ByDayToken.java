@@ -46,7 +46,7 @@ public class ByDayToken implements IRRuleToken<ByDayToken.DayList>
   /**
    * Helper method to get the required string of the day.
    *
-   * @param pDayOfWeek DayOfWekk to convert.
+   * @param pDayOfWeek DayOfWeek to convert.
    * @return String representative of the DayOfWeek.
    */
   public static String getByDayOfWeek(DayOfWeek pDayOfWeek)
