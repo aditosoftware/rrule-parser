@@ -71,6 +71,35 @@ public class RRuleTokenContainer implements IRRuleTokenContainer
     return (BySetPosToken) tokenInstancesMap.get(BySetPosToken.class);
   }
 
+  @Override
+  public void merge(IRRuleTokenContainer pTokenContainer)
+  {
+    if (pTokenContainer.getFreq() != null && getFreq() == null)
+      tokenInstancesMap.put(pTokenContainer.getFreq().getClass(), pTokenContainer.getFreq());
+
+    if (pTokenContainer.getUntil() != null && getUntil() == null)
+      tokenInstancesMap.put(pTokenContainer.getUntil().getClass(), pTokenContainer.getUntil());
+
+    if (pTokenContainer.getCount() != null && getCount() == null)
+      tokenInstancesMap.put(pTokenContainer.getCount().getClass(), pTokenContainer.getCount());
+
+    if (pTokenContainer.getInterval() != null && getInterval() == null)
+      tokenInstancesMap.put(pTokenContainer.getInterval().getClass(), pTokenContainer.getInterval());
+
+    if (pTokenContainer.getByDay() != null && getByDay() == null)
+      tokenInstancesMap.put(pTokenContainer.getByDay().getClass(), pTokenContainer.getByDay());
+
+    if (pTokenContainer.getByMontDay() != null && getByMontDay() == null)
+      tokenInstancesMap.put(pTokenContainer.getByMontDay().getClass(), pTokenContainer.getByMontDay());
+
+    if (pTokenContainer.getByMonth() != null && getByMonth() == null)
+      tokenInstancesMap.put(pTokenContainer.getByMonth().getClass(), pTokenContainer.getByMonth());
+
+    if (pTokenContainer.getBySetPos() != null && getBySetPos() == null)
+      tokenInstancesMap.put(pTokenContainer.getBySetPos().getClass(), pTokenContainer.getBySetPos());
+
+  }
+
   /**
    * Checks if the given container is equals to the current container.
    * Will check if the {@link this#tokenInstancesMap} has different sizes.

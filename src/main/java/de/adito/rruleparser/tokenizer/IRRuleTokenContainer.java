@@ -79,4 +79,13 @@ public interface IRRuleTokenContainer
    * @return "BYSETPOS" token or {@code null}.
    */
   BySetPosToken getBySetPos();
+
+  /**
+   * Merges the current container with the given container.
+   * If the token is already set by the current container
+   * it WILL NOT be overridden.
+   *
+   * @param pTokenContainer Token container to merge with.
+   */
+  void merge(IRRuleTokenContainer pTokenContainer);
 }

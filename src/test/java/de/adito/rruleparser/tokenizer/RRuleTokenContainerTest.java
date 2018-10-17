@@ -95,4 +95,36 @@ class RRuleTokenContainerTest
     IRRuleTokenContainer container = tokenizer.tokenize(input);
     assertEquals(input, container.toString());
   }
+
+  @Test
+  void testMergeSimple() throws RRuleTokenizeException
+  {
+    IRRuleTokenContainer firstPart = tokenizer.tokenize("FREQ=WEEKLY;INTERVAL=1");
+    IRRuleTokenContainer secondPart = tokenizer.tokenize("FREQ=YEARLY;INTERVAL=1;BYMONTHDAY=1;BYSETPOS=1");
+
+    // Merge secondPart into firstPart
+    firstPart.merge(secondPart);
+
+    assertNotNull(firstPart.getFreq());
+    assertNotNull(firstPart.getByMontDay());
+    assertNotNull(firstPart.getBySetPos());
+    assertNotNull(firstPart.getByMontDay());
+
+    assertEquals(secondPart.getByMontDay(), firstPart.getByMontDay());
+    assertEquals(secondPart.getBySetPos(), firstPart.getBySetPos());
+  }
+
+  @Test
+  void testMergeDoNotOverride() throws RRuleTokenizeException
+  {
+    IRRuleTokenContainer firstPart = tokenizer.tokenize("FREQ=WEEKLY;INTERVAL=1");
+    IRRuleTokenContainer secondPart = tokenizer.tokenize("FREQ=YEARLY;INTERVAL=1;BYMONTHDAY=1;BYSETPOS=1");
+
+    // Merge secondPart into firstPart
+    firstPart.merge(secondPart);
+
+    assertNotNull(firstPart.getFreq());
+    assertNotEquals(secondPart.getFreq(), firstPart.getFreq());
+    assertNotEquals(secondPart.getInterval(), firstPart.getInterval());
+  }
 }
