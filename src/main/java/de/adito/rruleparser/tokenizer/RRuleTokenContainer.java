@@ -69,4 +69,34 @@ public class RRuleTokenContainer implements IRRuleTokenContainer
   {
     return (BySetPosToken) tokenInstancesMap.get(BySetPosToken.class);
   }
+
+  /**
+   * Checks if the given container is equals to the current container.
+   * Will check if the {@link this#tokenInstancesMap} has different sizes.
+   * And als if the value each token is equal.
+   *
+   * @param obj Container to check against
+   * @return {@code true} if the containers are equal, {@code false} otherwisen.
+   */
+  @Override
+  public boolean equals(Object obj)
+  {
+    // Can currently only compare with it self.
+    if (obj instanceof RRuleTokenContainer)
+    {
+      RRuleTokenContainer foreignTokenContainer = (RRuleTokenContainer) obj;
+
+      // Different sized containers can't be equal.
+      if (foreignTokenContainer.tokenInstancesMap.size() != this.tokenInstancesMap.size())
+        return false;
+
+      for (IRRuleToken cToken : foreignTokenContainer.tokenInstancesMap.values())
+        if (!cToken.getValue().equals(this.tokenInstancesMap.get(cToken.getClass()).getValue()))
+          return false;
+
+      return true;
+    }
+    else
+      return false;
+  }
 }
