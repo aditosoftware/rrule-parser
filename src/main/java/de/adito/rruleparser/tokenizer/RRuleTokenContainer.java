@@ -17,6 +17,11 @@ public class RRuleTokenContainer implements IRRuleTokenContainer
       tokenInstancesMap.put(token.getClass(), token);
   }
 
+  public static RRuleTokenContainer emptyTokenContainer()
+  {
+    return new RRuleTokenContainer(new ArrayList<>());
+  }
+
   @Override
   public int ruleCount()
   {
