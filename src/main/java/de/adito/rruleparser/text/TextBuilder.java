@@ -5,6 +5,7 @@ import de.adito.rruleparser.tokenizer.token.*;
 import de.adito.rruleparser.translation.*;
 
 import java.time.*;
+import java.time.format.DateTimeFormatter;
 import java.util.stream.Collectors;
 
 public class TextBuilder implements ITextBuilder
@@ -207,7 +208,7 @@ public class TextBuilder implements ITextBuilder
       return null;
 
     String result = fragmentTranslator.getTranslatedFragment(ETranslationFragment.UNTIL);
-    result += " " + untilToken.getValue().toString();
+    result += " " + untilToken.getValue().getLocalDateTime().format(DateTimeFormatter.ISO_LOCAL_DATE);
 
     return result;
   }

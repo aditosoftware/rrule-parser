@@ -41,6 +41,12 @@ public class ByDayToken implements IRRuleToken<ByDayToken.DayList>
     {
       return Collections.unmodifiableList(dayList);
     }
+
+    @Override
+    public String toString()
+    {
+      return getByDayOfWeek(dayList.toArray(new DayOfWeek[0]));
+    }
   }
 
   /**

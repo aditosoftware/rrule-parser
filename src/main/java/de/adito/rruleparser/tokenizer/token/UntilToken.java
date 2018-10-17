@@ -2,15 +2,18 @@ package de.adito.rruleparser.tokenizer.token;
 
 import de.adito.rruleparser.tokenizer.IRRuleToken;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
-public class UntilToken implements IRRuleToken<LocalDate>
+public class UntilToken implements IRRuleToken<UntilToken.ValueWrapper>
 {
-  private LocalDate localDate;
+  public static DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("yyyyMMdd'T'HHmmss'Z'");
 
-  public UntilToken(Object pLocalDate)
+  private ValueWrapper valueWrapper;
+
+  public UntilToken(Object pValueWrapper)
   {
-    localDate = (LocalDate) pLocalDate;
+    valueWrapper = (ValueWrapper) pValueWrapper;
   }
 
   @Override
@@ -20,8 +23,29 @@ public class UntilToken implements IRRuleToken<LocalDate>
   }
 
   @Override
-  public LocalDate getValue()
+  public ValueWrapper getValue()
   {
-    return localDate;
+    return valueWrapper;
+  }
+
+  public static class ValueWrapper
+  {
+    private LocalDateTime localDate;
+
+    public ValueWrapper(LocalDateTime LocalDateTime)
+    {
+      localDate = LocalDateTime;
+    }
+
+    public LocalDateTime getLocalDateTime()
+    {
+      return localDate;
+    }
+
+    @Override
+    public String toString()
+    {
+      return getLocalDateTime().format(DATE_FORMAT);
+    }
   }
 }

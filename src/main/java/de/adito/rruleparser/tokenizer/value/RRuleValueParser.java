@@ -4,7 +4,7 @@ import de.adito.rruleparser.tokenizer.exception.RRuleTokenizeException;
 import de.adito.rruleparser.tokenizer.token.*;
 
 import java.time.*;
-import java.time.format.*;
+import java.time.format.DateTimeParseException;
 import java.util.*;
 
 /**
@@ -73,11 +73,11 @@ public class RRuleValueParser implements IValueParser
     }
   }
 
-  private LocalDate _getUntilValue(String pValue)
+  private UntilToken.ValueWrapper _getUntilValue(String pValue)
   {
     try
     {
-      return LocalDate.parse(pValue, DateTimeFormatter.ofPattern("yyyyMMdd'T'HHmmss'Z'"));
+      return new UntilToken.ValueWrapper(LocalDateTime.parse(pValue, UntilToken.DATE_FORMAT));
     }
     catch (DateTimeParseException e)
     {

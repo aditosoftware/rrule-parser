@@ -3,6 +3,7 @@ package de.adito.rruleparser.tokenizer;
 import de.adito.rruleparser.tokenizer.token.*;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class RRuleTokenContainer implements IRRuleTokenContainer
 {
@@ -10,7 +11,7 @@ public class RRuleTokenContainer implements IRRuleTokenContainer
 
   RRuleTokenContainer(List<IRRuleToken> rruleTokens)
   {
-    tokenInstancesMap = new HashMap<>();
+    tokenInstancesMap = new LinkedHashMap<>();
 
     for (IRRuleToken token : rruleTokens)
       tokenInstancesMap.put(token.getClass(), token);
@@ -98,5 +99,18 @@ public class RRuleTokenContainer implements IRRuleTokenContainer
     }
     else
       return false;
+  }
+
+  /**
+   * Converts the tokens in the container to joined string.
+   *
+   * @return Current tokens as valid RRule.
+   */
+  @Override
+  public String toString()
+  {
+    return this.tokenInstancesMap.values().stream()
+        .map(v -> v.getName() + "=" + v.getValue().toString())
+        .collect(Collectors.joining(";"));
   }
 }

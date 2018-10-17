@@ -34,7 +34,7 @@ class RRuleTokenizerTest
 
     assertEquals(2, tokenContainer.ruleCount());
     assertNotNull(tokenContainer.getUntil());
-    assertEquals(LocalDate.of(2018, 10, 23), tokenContainer.getUntil().getValue());
+    assertEquals(LocalDate.of(2018, 10, 23), tokenContainer.getUntil().getValue().getLocalDateTime().toLocalDate());
   }
 
   @Test

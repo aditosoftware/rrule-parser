@@ -4,6 +4,8 @@ import de.adito.rruleparser.tokenizer.exception.RRuleTokenizeException;
 import de.adito.rruleparser.tokenizer.validation.RRuleValidator;
 import de.adito.rruleparser.tokenizer.value.*;
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -76,5 +78,21 @@ class RRuleTokenContainerTest
     IRRuleTokenContainer secondPart = tokenizer.tokenize("INTERVAL=1;BYMONTHDAY=1;FREQ=YEARLY;BYSETPOS=1");
 
     assertNotEquals(firstPart, secondPart);
+  }
+
+  @ParameterizedTest
+  @ValueSource(strings = {
+      "FREQ=WEEKLY;BYDAY=MO,TU",
+      "FREQ=YEARLY;BYMONTHDAY=1",
+      "FREQ=YEARLY;BYSETPOS=1",
+      "FREQ=YEARLY;COUNT=1",
+      "FREQ=YEARLY;INTERVAL=1",
+      "FREQ=YEARLY;UNTIL=20181023T220000Z"
+  })
+  @DisplayName("Test toString method")
+  void testToStringMethod(String input) throws RRuleTokenizeException
+  {
+    IRRuleTokenContainer container = tokenizer.tokenize(input);
+    assertEquals(input, container.toString());
   }
 }
