@@ -47,6 +47,17 @@ public class ByDayToken implements IRRuleToken<ByDayToken.DayList>
     {
       return getByDayOfWeek(dayList.toArray(new DayOfWeek[0]));
     }
+
+    @Override
+    public boolean equals(Object obj)
+    {
+      if (!(obj instanceof DayList))
+        return false;
+
+      return ((DayList) obj).getDayList().containsAll(getDayList())
+          && getDayList().containsAll(((DayList) obj).getDayList())
+          && getDayList().size() == ((DayList) obj).getDayList().size();
+    }
   }
 
   /**
