@@ -1,5 +1,7 @@
 package de.adito.rruleparser.translation;
 
+import java.util.Locale;
+
 /**
  * Describes a translation provider which should be able to translate the
  * required text blocks.
@@ -15,4 +17,12 @@ public interface IFragmentTranslator
    * @return The translated fragment.
    */
   String getTranslatedFragment(ETranslationFragment pTranslationFragment);
+
+  /**
+   * Returns the locale that is compatible with this
+   * translation.
+   *
+   * @return Locale of translation.
+   */
+  Locale getCompatibleLocale();
 }

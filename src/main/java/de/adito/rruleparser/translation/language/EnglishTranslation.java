@@ -2,6 +2,8 @@ package de.adito.rruleparser.translation.language;
 
 import de.adito.rruleparser.translation.ETranslationFragment;
 
+import java.util.Locale;
+
 /**
  * Implements the english translation.
  */
@@ -30,44 +32,6 @@ public class EnglishTranslation implements ILanguagePackage
         return "years";
       case DAY:
         return "day";
-      case MONDAY:
-        return "monday";
-      case TUESDAY:
-        return "tuesday";
-      case WEDNESDAY:
-        return "wednesday";
-      case THURSDAY:
-        return "thursday";
-      case FRIDAY:
-        return "friday";
-      case SATURDAY:
-        return "saturday";
-      case SUNDAY:
-        return "sunday";
-      case JANUARY:
-        return "january";
-      case FEBRUARY:
-        return "february";
-      case MARCH:
-        return "march";
-      case APRIL:
-        return "april";
-      case MAY:
-        return "may";
-      case JUNE:
-        return "june";
-      case JULY:
-        return "july";
-      case AUGUST:
-        return "august";
-      case SEPTEMBER:
-        return "september";
-      case OCTOBER:
-        return "october";
-      case NOVEMBER:
-        return "november";
-      case DECEMBER:
-        return "december";
       case FIRST:
         return "first";
       case SECOND:
@@ -91,5 +55,11 @@ public class EnglishTranslation implements ILanguagePackage
       default:
         return "";
     }
+  }
+
+  @Override
+  public Locale getCompatibleLocale()
+  {
+    return Locale.ENGLISH;
   }
 }

@@ -16,7 +16,7 @@ class RRuleParserTest
 
     String parseResult = ruleParser.parseRRule("FREQ=MONTHLY;BYSETPOS=4;BYDAY=SU;INTERVAL=5");
 
-    assertEquals("Every 5 months on fourth sunday", parseResult);
+    assertEquals("Every 5 months on fourth Sunday", parseResult);
 
   }
 }

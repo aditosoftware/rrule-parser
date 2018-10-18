@@ -16,31 +16,7 @@ public enum ETranslationFragment
   WEEKS,
   MONTHS,
   YEARS,
-
   DAY,
-
-  // DAYS
-  MONDAY,
-  TUESDAY,
-  WEDNESDAY,
-  THURSDAY,
-  FRIDAY,
-  SATURDAY,
-  SUNDAY,
-
-  // Months
-  JANUARY,
-  FEBRUARY,
-  MARCH,
-  APRIL,
-  MAY,
-  JUNE,
-  JULY,
-  AUGUST,
-  SEPTEMBER,
-  OCTOBER,
-  NOVEMBER,
-  DECEMBER,
 
   // SetPos
   FIRST,

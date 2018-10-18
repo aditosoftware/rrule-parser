@@ -33,28 +33,28 @@ class TextBuilderTest
         Arguments.of("FREQ=MONTHLY;INTERVAL=1", "Monthly"),
         Arguments.of("FREQ=YEARLY;INTERVAL=1", "Annually"),
 
-        Arguments.of("FREQ=WEEKLY;INTERVAL=1;BYDAY=MO,TU", "Weekly on monday, tuesday"),
-        Arguments.of("FREQ=WEEKLY;INTERVAL=2;BYDAY=MO,TU", "Every 2 weeks on monday, tuesday"),
-        Arguments.of("FREQ=WEEKLY;INTERVAL=2;BYDAY=MO,TU,WE,SA", "Every 2 weeks on monday, tuesday, wednesday, saturday"),
+        Arguments.of("FREQ=WEEKLY;INTERVAL=1;BYDAY=MO,TU", "Weekly on Monday, Tuesday"),
+        Arguments.of("FREQ=WEEKLY;INTERVAL=2;BYDAY=MO,TU", "Every 2 weeks on Monday, Tuesday"),
+        Arguments.of("FREQ=WEEKLY;INTERVAL=2;BYDAY=MO,TU,WE,SA", "Every 2 weeks on Mon, Tue, Wed, Sat"),
 
         Arguments.of("FREQ=MONTHLY;INTERVAL=1;BYMONTHDAY=5", "Monthly on day 5"),
         Arguments.of("FREQ=MONTHLY;INTERVAL=1;BYMONTHDAY=15", "Monthly on day 15"),
         Arguments.of("FREQ=MONTHLY;INTERVAL=2;BYMONTHDAY=15", "Every 2 months on day 15"),
 
-        Arguments.of("FREQ=MONTHLY;INTERVAL=2;BYDAY=MO;BYSETPOS=-1", "Every 2 months on last monday"),
-        Arguments.of("FREQ=MONTHLY;INTERVAL=2;BYDAY=MO;BYSETPOS=1", "Every 2 months on first monday"),
-        Arguments.of("FREQ=MONTHLY;INTERVAL=2;BYDAY=SA;BYSETPOS=3", "Every 2 months on third saturday"),
+        Arguments.of("FREQ=MONTHLY;INTERVAL=2;BYDAY=MO;BYSETPOS=-1", "Every 2 months on last Monday"),
+        Arguments.of("FREQ=MONTHLY;INTERVAL=2;BYDAY=MO;BYSETPOS=1", "Every 2 months on first Monday"),
+        Arguments.of("FREQ=MONTHLY;INTERVAL=2;BYDAY=SA;BYSETPOS=3", "Every 2 months on third Saturday"),
 
-        Arguments.of("FREQ=YEARLY;BYMONTH=1;BYMONTHDAY=1", "Annually on january 1"),
-        Arguments.of("FREQ=YEARLY;BYMONTH=4;BYMONTHDAY=5", "Annually on april 5"),
+        Arguments.of("FREQ=YEARLY;BYMONTH=1;BYMONTHDAY=1", "Annually on January 01"),
+        Arguments.of("FREQ=YEARLY;BYMONTH=4;BYMONTHDAY=5", "Annually on April 05"),
 
-        Arguments.of("FREQ=YEARLY;BYDAY=SU;BYSETPOS=1;BYMONTH=1", "Annually on first sunday of january"),
-        Arguments.of("FREQ=YEARLY;BYDAY=WE;BYSETPOS=-1;BYMONTH=4", "Annually on last wednesday of april"),
+        Arguments.of("FREQ=YEARLY;BYDAY=SU;BYSETPOS=1;BYMONTH=1", "Annually on first Sunday of January"),
+        Arguments.of("FREQ=YEARLY;BYDAY=WE;BYSETPOS=-1;BYMONTH=4", "Annually on last Wednesday of April"),
 
 
         Arguments.of("FREQ=DAILY;INTERVAL=1;COUNT=2", "Daily, 2 times"),
         Arguments.of("FREQ=WEEKLY;INTERVAL=1;COUNT=1", "Weekly"),
-        Arguments.of("FREQ=MONTHLY;INTERVAL=1;UNTIL=20181023T220000Z", "Monthly, until 2018-10-23")
+        Arguments.of("FREQ=MONTHLY;INTERVAL=1;UNTIL=20181023T220000Z", "Monthly, until 23 Oct 2018")
     );
   }
 

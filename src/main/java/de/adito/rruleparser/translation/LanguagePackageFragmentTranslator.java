@@ -2,6 +2,8 @@ package de.adito.rruleparser.translation;
 
 import de.adito.rruleparser.translation.language.ILanguagePackage;
 
+import java.util.Locale;
+
 /**
  * This implementation is able to to translate a fragment using different
  * language package.
@@ -30,5 +32,11 @@ public class LanguagePackageFragmentTranslator implements IFragmentTranslator
   public String getTranslatedFragment(ETranslationFragment pTranslationFragment)
   {
     return languagePackage.getFragment(pTranslationFragment);
+  }
+
+  @Override
+  public Locale getCompatibleLocale()
+  {
+    return languagePackage.getCompatibleLocale();
   }
 }
