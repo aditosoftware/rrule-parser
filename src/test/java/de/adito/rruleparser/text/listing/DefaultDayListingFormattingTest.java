@@ -16,7 +16,6 @@ class DefaultDayListingFormattingTest
 {
 
   private static IDayListingFormatting dayListingFormatting = new DefaultDayListingFormatting(
-      new LanguagePackageFragmentTranslator(new EnglishTranslation()),
       new DefaultDateFormatting(new LanguagePackageFragmentTranslator(new EnglishTranslation())));
 
   private static Stream<Arguments> createTestCases()

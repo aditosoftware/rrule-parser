@@ -26,7 +26,7 @@ public class TextBuilder implements ITextBuilder
 
   public TextBuilder(IFragmentTranslator pFragmentTranslator, IDateFormatting pDateFormatting)
   {
-    this(pFragmentTranslator, pDateFormatting, new DefaultDayListingFormatting(pFragmentTranslator, pDateFormatting));
+    this(pFragmentTranslator, pDateFormatting, new DefaultDayListingFormatting(pDateFormatting));
   }
 
   public TextBuilder(IFragmentTranslator pFragmentTranslator, IDateFormatting pDateFormatting, IDayListingFormatting pDayListingFormatting)
